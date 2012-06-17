@@ -8,11 +8,20 @@
 		<em:description>To shorten the URL for the selected and anchor text.</em:description>
 		<em:homepageURL>http://kakakikikeke.blogspot.com/</em:homepageURL>
 		<em:iconURL>chrome://shorten_the_URL/skin/stu.png</em:iconURL>
+		<em:icon64URL>chrome://shorten_the_URL/skin/stu64.png</em:icon64URL>
 		<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 		<em:name>shorten the URL</em:name>
 		<em:optionsURL>chrome://shorten_the_URL/content/options.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
 		<em:version>0.1</em:version>
+		<em:type>2</em:type>
+		<em:file>
+			<Description about="urn:mozilla:extension:file:stu.jar">
+				<em:package>content/</em:package>
+				<em:locale>locale/en-US/</em:locale>
+				<em:skin>skin/</em:skin>
+			</Description>
+		</em:file>
 		<em:localized>
 			<Description>
 				<em:locale>en-US</em:locale>
