@@ -9,7 +9,7 @@
 		<em:homepageURL>http://kakakikikeke.blogspot.com/</em:homepageURL>
 		<em:iconURL>chrome://shorten_the_URL/skin/stu.png</em:iconURL>
 		<em:icon64URL>chrome://shorten_the_URL/skin/stu64.png</em:icon64URL>
-		<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+		<em:id>kakakikikeke@kakakikikeke.blogspot.com</em:id>
 		<em:name>shorten the URL</em:name>
 		<em:optionsURL>chrome://shorten_the_URL/content/options.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
@@ -43,7 +43,7 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:maxVersion>13.0.*</em:maxVersion>
+				<em:maxVersion>13.*</em:maxVersion>
 				<em:minVersion>1.0</em:minVersion>
 			</Description>
 		</em:targetApplication>
