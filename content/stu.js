@@ -6,13 +6,14 @@ function shortenURL() {
 	var mainWindow = wm.getMostRecentWindow("navigator:browser");
 	var tabBrowser = mainWindow.getBrowser();
 	var selectedText = tabBrowser.contentWindow.getSelection();
-	url = selectedText.toString().trim();
-	if (url.toString().startsWith("http") || url.toString().startsWith("https")) {
+	url = myTrim(selectedText.toString());
+	if (myStartsWith(url.toString(), "http")
+			|| myStartsWith(url.toString(), "https")) {
 		doBitlyAPI();
 	} else {
-		url = getURLOnHref().toString().trim();
-		if (url.toString().startsWith("http")
-				|| url.toString().startsWith("https")) {
+		url = myTrim(getURLOnHref().toString());
+		if (myStartsWith(url.toString(), "http")
+				|| myStartsWith(url.toString(), "https")) {
 			doBitlyAPI();
 		} else {
 			window.alert("Not the correct URL");
@@ -25,12 +26,9 @@ function doBitlyAPI() {
 	var apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
 	bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login='
 			+ login + '&apiKey=' + apiKey + '&longUrl=' + url;
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = bitly;
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = showResult;
-	xmlhttp.open('GET', script.src, true);
+	xmlhttp.open('GET', bitly, true);
 	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
 	xmlhttp.send();
 };
@@ -52,7 +50,7 @@ function getURLOnHref() {
 	var urlOnHref = "";
 	var tag = document.popupNode.tagName;
 	if (tag.toString() == "A") {
-//		urlOnHref = document.popupNode.getAttribute("href");
+		// urlOnHref = document.popupNode.getAttribute("href");
 		urlOnHref = document.popupNode.href;
 	} else {
 		urlOnHref = document.popupNode.innerHTML;
@@ -60,15 +58,15 @@ function getURLOnHref() {
 	return urlOnHref;
 };
 
-String.trim = function() {
-	return this
+function myTrim(str) {
+	return str
 			.replace(
 					/^[\s　]+|[\s　]+$|^[\s ]+|[\s ]+$|^[\n]+|[\n]+$|^[\r\n]+|[\r\n]+$|<.+?>/g,
 					'');
 };
 
-String.prototype.startsWith = function(str) {
-	return this.indexOf(str) == 0;
+function myStartsWith(str, target) {
+	return str.indexOf(target) == 0;
 };
 
 var json_parse = function() {
