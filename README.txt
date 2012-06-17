@@ -1,0 +1,1 @@
+To shorten the URL for the selected and anchor text.
