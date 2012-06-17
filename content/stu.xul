@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+ 
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+	  href="chrome://xulschoolhello/skin/browserOverlay.css" ?>
+ 
+<!DOCTYPE overlay SYSTEM
+	  "chrome://xulschoolhello/locale/browserOverlay.dtd">
+
+<overlay id="stu-browser-overlay"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://shorten_the_URL/content/stu.js" />
+
+	<menupopup id="contentAreaContextMenu">
+		<menuitem id="stuMenu" label="shorten the URL" insertafter="context-bookmarkpage"
+			oncommand="shortenURL();" />
+	</menupopup>
+
+</overlay>

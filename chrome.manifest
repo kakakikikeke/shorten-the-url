@@ -1,0 +1,5 @@
+content shorten_the_URL 	jar:chrome/stu.jar!/content/
+locale	shorten_the_URL		en-US		jar:chrome/stu.jar!/locale/en-US/
+skin	shorten_the_URL		classic/1.0	jar:chrome/stu.jar!/skin/
+
+overlay chrome://browser/content/browser.xul  chrome://shorten_the_URL/content/stu.xul
