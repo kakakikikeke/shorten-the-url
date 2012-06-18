@@ -13,15 +13,9 @@
 		<em:name>shorten the URL</em:name>
 		<em:optionsURL>chrome://shorten_the_URL/content/options.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.1</em:version>
+		<em:version>0.2</em:version>
 		<em:type>2</em:type>
-		<em:file>
-			<Description about="urn:mozilla:extension:file:stu.jar">
-				<em:package>content/</em:package>
-				<em:locale>locale/en-US/</em:locale>
-				<em:skin>skin/</em:skin>
-			</Description>
-		</em:file>
+		<em:unpack>true</em:unpack>
 		<em:localized>
 			<Description>
 				<em:locale>en-US</em:locale>
