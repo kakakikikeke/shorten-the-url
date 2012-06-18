@@ -27,23 +27,20 @@ function doBitlyAPI() {
 	bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login='
 			+ login + '&apiKey=' + apiKey + '&longUrl=' + url;
 	xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = showResult;
-	xmlhttp.open('GET', bitly, true);
+	xmlhttp.open('GET', bitly, false);
 	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-	xmlhttp.send();
-};
-
-function showResult() {
-	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		var response = xmlhttp.responseText;
+	xmlhttp.send(null);
+	var response = xmlhttp.responseText;
+	if (response != null && response != "") {
 		var responseAsJSON = JSON.stringify(response);
 		var data = JSON.parse(response);
-		var result = data.results[url].shortUrl;
-		var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
-				.getService(Components.interfaces.nsIClipboardHelper);
-		gClipboardHelper.copyString(result);
-		window.prompt("Success", result);
+		if (data.results[url] !== undefined) {
+			window.prompt("Success", data.results[url].shortUrl);			
+		} else {
+			window.alert("Not the correct URL");
+		}
 	}
+
 };
 
 function getURLOnHref() {
