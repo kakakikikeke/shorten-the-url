@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<prefwindow id="stu-pref-window" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+	title="Config shorten the URL" bottons="accept,cancel">
+	<prefpane id="pref.general" label="general">
+		<preferences>
+			<preference id="extensions.stu.apiusername" name="extensions.stu.apiusername" type="string" />
+			<preference id="extensions.stu.apikey" name="extensions.stu.apikey" type="string" />
+		</preferences>
+		<vbox>
+			<label id="apiusername" value="Bitly API Username" />
+			<textbox id="extensions.stu.apiusername" preference="extensions.stu.apiusername" />
+			<label id="apiusername" value="Bitly API Key" />
+			<textbox id="extensions.stu.apikey" preference="extensions.stu.apikey" />
+		</vbox>
+	</prefpane>
+</prefwindow>

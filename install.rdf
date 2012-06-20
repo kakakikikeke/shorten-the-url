@@ -11,7 +11,7 @@
 		<em:icon64URL>chrome://shorten_the_URL/skin/stu64.png</em:icon64URL>
 		<em:id>kakakikikeke@kakakikikeke.blogspot.com</em:id>
 		<em:name>shorten the URL</em:name>
-		<em:optionsURL>chrome://shorten_the_URL/content/options.xul</em:optionsURL>
+		<em:optionsURL>chrome://shorten_the_URL/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
 		<em:version>0.2.2</em:version>
 		<em:type>2</em:type>

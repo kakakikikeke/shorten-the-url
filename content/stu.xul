@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
  
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
-<?xml-stylesheet type="text/css"
-	  href="chrome://xulschoolhello/skin/browserOverlay.css" ?>
+<?xml-stylesheet type="text/css" href="chrome://shorten_the_URL/skin/stu.css" ?>
  
-<!DOCTYPE overlay SYSTEM
-	  "chrome://xulschoolhello/locale/browserOverlay.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://shorten_the_URL/locale/en-US/stu.dtd">
 
 <overlay id="stu-browser-overlay"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
