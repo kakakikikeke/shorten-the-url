@@ -25,9 +25,10 @@ function shortenURL() {
 };
 
 function doBitlyAPI() {
-	bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login='
-			+ apiusername + '&apiKey=' + apiKey + '&longUrl=' + url;
-	xmlhttp = new XMLHttpRequest();
+	var bitly = 'http://api.bit.ly/shorten'
+			+ '?version=2.0.1&format=json&login=' + apiusername + '&apiKey='
+			+ apiKey + '&longUrl=' + url;
+	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open('GET', bitly, false);
 	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
 	xmlhttp.send(null);
@@ -61,10 +62,13 @@ function getURLOnHref() {
 };
 
 function initApiInfo() {
-	pref = Components.classes["@mozilla.org/preferences-service;1"]
+	var pref = Components.classes["@mozilla.org/preferences-service;1"]
 			.getService(Components.interfaces.nsIPrefService);
 	branch = pref.getBranch("extensions.stu.");
-	if (branch.getCharPref("apiusername") == ""
+	if (!branch.prefHasUserValue("apiusername") || !branch.prefHasUserValue("apikey")) {
+		apiusername = 'kakakikikeke4bitlyapi';
+		apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
+	} else if (branch.getCharPref("apiusername") == ""
 			|| branch.getCharPref("apikey") == "") {
 		apiusername = 'kakakikikeke4bitlyapi';
 		apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
