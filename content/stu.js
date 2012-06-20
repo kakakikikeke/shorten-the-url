@@ -1,6 +1,9 @@
 var url = "";
+var apiusername = "";
+var apiKey = "";
 
 function shortenURL() {
+	initApiInfo();
 	var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
 			.getService(Components.interfaces.nsIWindowMediator);
 	var mainWindow = wm.getMostRecentWindow("navigator:browser");
@@ -22,10 +25,8 @@ function shortenURL() {
 };
 
 function doBitlyAPI() {
-	var login = 'kakakikikeke4bitlyapi';
-	var apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
 	bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login='
-			+ login + '&apiKey=' + apiKey + '&longUrl=' + url;
+			+ apiusername + '&apiKey=' + apiKey + '&longUrl=' + url;
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.open('GET', bitly, false);
 	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
@@ -34,10 +35,14 @@ function doBitlyAPI() {
 	if (response != null && response != "") {
 		var responseAsJSON = JSON.stringify(response);
 		var data = JSON.parse(response);
-		if (data.results[url] !== undefined) {
-			window.prompt("Success", data.results[url].shortUrl);			
+		if (data.errorCode != "500" || data.errorMessage != "INVALID_LOGIN") {
+			if (data.results[url] !== undefined) {
+				window.prompt("Success", data.results[url].shortUrl);
+			} else {
+				window.alert("Not the correct URL");
+			}
 		} else {
-			window.alert("Not the correct URL");
+			window.alert("Invalid login, Not the corrent API username or key");
 		}
 	}
 
@@ -53,6 +58,20 @@ function getURLOnHref() {
 		urlOnHref = document.popupNode.innerHTML;
 	}
 	return urlOnHref;
+};
+
+function initApiInfo() {
+	pref = Components.classes["@mozilla.org/preferences-service;1"]
+			.getService(Components.interfaces.nsIPrefService);
+	branch = pref.getBranch("extensions.stu.");
+	if (branch.getCharPref("apiusername") == ""
+			|| branch.getCharPref("apikey") == "") {
+		apiusername = 'kakakikikeke4bitlyapi';
+		apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
+	} else {
+		apiusername = branch.getCharPref("apiusername");
+		apiKey = branch.getCharPref("apikey");
+	}
 };
 
 function myTrim(str) {

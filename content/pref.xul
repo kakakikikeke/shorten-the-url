@@ -12,7 +12,7 @@
 		<vbox>
 			<label id="apiusername" value="Bitly API Username" />
 			<textbox id="extensions.stu.apiusername" preference="extensions.stu.apiusername" />
-			<label id="apiusername" value="Bitly API Key" />
+			<label id="apikey" value="Bitly API Key" />
 			<textbox id="extensions.stu.apikey" preference="extensions.stu.apikey" />
 		</vbox>
 	</prefpane>
