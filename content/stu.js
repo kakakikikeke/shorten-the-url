@@ -1,8 +1,10 @@
 var url = "";
 var apiusername = "";
 var apiKey = "";
+var alertFlg = 0;
 
 function shortenURL() {
+	alertFlg = 0;
 	initApiInfo();
 	var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
 			.getService(Components.interfaces.nsIWindowMediator);
@@ -18,9 +20,10 @@ function shortenURL() {
 		if (myStartsWith(url.toString(), "http")
 				|| myStartsWith(url.toString(), "https")) {
 			doBitlyAPI();
-		} else {
-			window.alert("Not the correct URL");
-		}
+		} 
+//		else {
+//			window.alert("Not the correct URL");
+//		}
 	}
 };
 
@@ -29,24 +32,28 @@ function doBitlyAPI() {
 			+ '?version=2.0.1&format=json&login=' + apiusername + '&apiKey='
 			+ apiKey + '&longUrl=' + url;
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('GET', bitly, false);
-	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-	xmlhttp.send(null);
-	var response = xmlhttp.responseText;
-	if (response != null && response != "") {
-		var responseAsJSON = JSON.stringify(response);
-		var data = JSON.parse(response);
-		if (data.errorCode != "500" || data.errorMessage != "INVALID_LOGIN") {
-			if (data.results[url] !== undefined) {
-				window.prompt("Success", data.results[url].shortUrl);
+	xmlhttp.open('GET', encodeURI(bitly), true);
+	xmlhttp.onreadystatechange = function() {
+		var response = xmlhttp.responseText;
+		if (response != null && response != "") {
+			var responseAsJSON = JSON.stringify(response);
+			var data = JSON.parse(response);
+			if (data.errorCode != "500" || data.errorMessage != "INVALID_LOGIN") {
+				if ((xmlhttp.readyState == 4 && xmlhttp.status == 200) && data.results[url] !== undefined) {
+					window.prompt("Success", data.results[url].shortUrl);
+				} 
+//				else if (alertFlg == 0) {
+//					alertFlg = 1;
+//					window.alert("Not the correct URL");
+//				}
 			} else {
-				window.alert("Not the correct URL");
+				window
+						.alert("Invalid login, Not the corrent API username or key");
 			}
-		} else {
-			window.alert("Invalid login, Not the corrent API username or key");
 		}
 	}
-
+	xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+	xmlhttp.send();
 };
 
 function getURLOnHref() {
@@ -65,7 +72,8 @@ function initApiInfo() {
 	var pref = Components.classes["@mozilla.org/preferences-service;1"]
 			.getService(Components.interfaces.nsIPrefService);
 	branch = pref.getBranch("extensions.stu.");
-	if (!branch.prefHasUserValue("apiusername") || !branch.prefHasUserValue("apikey")) {
+	if (!branch.prefHasUserValue("apiusername")
+			|| !branch.prefHasUserValue("apikey")) {
 		apiusername = 'kakakikikeke4bitlyapi';
 		apiKey = 'R_344ad8cbf73d813b1b28fa75a73ca60a';
 	} else if (branch.getCharPref("apiusername") == ""
