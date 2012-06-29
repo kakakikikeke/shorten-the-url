@@ -12,18 +12,22 @@ function shortenURL() {
 	var tabBrowser = mainWindow.getBrowser();
 	var selectedText = tabBrowser.contentWindow.getSelection();
 	url = myTrim(selectedText.toString());
-	if (myStartsWith(url.toString(), "http")
-			|| myStartsWith(url.toString(), "https")) {
+	if (url != "") {
+		if (!myStartsWith(url.toString(), "http:\/\/")
+				&& !myStartsWith(url.toString(), "https:\/\/")) {
+			url = "http://" + url;
+		}
 		doBitlyAPI();
 	} else {
 		url = myTrim(getURLOnHref().toString());
-		if (myStartsWith(url.toString(), "http")
-				|| myStartsWith(url.toString(), "https")) {
-			doBitlyAPI();
-		} 
-//		else {
-//			window.alert("Not the correct URL");
-//		}
+		if (!myStartsWith(url.toString(), "http:\/\/")
+				&& !myStartsWith(url.toString(), "https:\/\/")) {
+			url = "http://" + url;
+		}
+		doBitlyAPI();
+		// else {
+		// window.alert("Not the correct URL");
+		// }
 	}
 };
 
@@ -39,13 +43,14 @@ function doBitlyAPI() {
 			var responseAsJSON = JSON.stringify(response);
 			var data = JSON.parse(response);
 			if (data.errorCode != "500" || data.errorMessage != "INVALID_LOGIN") {
-				if ((xmlhttp.readyState == 4 && xmlhttp.status == 200) && data.results[url] !== undefined) {
+				if ((xmlhttp.readyState == 4 && xmlhttp.status == 200)
+						&& data.results[url] !== undefined) {
 					window.prompt("Success", data.results[url].shortUrl);
-				} 
-//				else if (alertFlg == 0) {
-//					alertFlg = 1;
-//					window.alert("Not the correct URL");
-//				}
+				}
+				// else if (alertFlg == 0) {
+				// alertFlg = 1;
+				// window.alert("Not the correct URL");
+				// }
 			} else {
 				window
 						.alert("Invalid login, Not the corrent API username or key");
