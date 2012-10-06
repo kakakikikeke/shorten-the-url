@@ -1,4 +1,4 @@
-shorten_the_URL
+shorten_the_url
 ================
 You can easily short the URL by using bitlyAPI.
 
