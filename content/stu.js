@@ -37,9 +37,9 @@ function shortenURL() {
 };
 
 function doBitlyAPI() {
-    var bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login=' + apiusername + '&apiKey=' + apiKey + '&longUrl=' + url;
+    var bitly = 'http://api.bit.ly/shorten' + '?version=2.0.1&format=json&login=' + apiusername + '&apiKey=' + apiKey + '&longUrl=' + encodeURIComponent(url);
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', encodeURI(bitly), true);
+    xmlhttp.open('GET', bitly, true);
     xmlhttp.onreadystatechange = function() {
 	var response = xmlhttp.responseText;
 	if (response != null && response != "") {
@@ -49,10 +49,11 @@ function doBitlyAPI() {
 		if ((xmlhttp.readyState == 4 && xmlhttp.status == 200) && data.results[url] !== undefined) {
 		    window.prompt("Success\nOriginal URL:" + url, data.results[url].shortUrl);
 		}
-		// else if (alertFlg == 0) {
-		// alertFlg = 1;
-		// window.alert("Not the correct URL");
-		// }
+		//else if (alertFlg == 0) {
+		//    alertFlg = 1;
+		//    Firebug.Console.log(bitly);
+		//    window.alert("Your selected URL is bad\n" + bitly);
+		//}
 	    } else {
 		window.alert("Invalid login, Not the corrent API username or key");
 	    }
