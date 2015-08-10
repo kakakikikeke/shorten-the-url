@@ -5,18 +5,16 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:aboutURL>chrome://shorten_the_URL/content/about.xul</em:aboutURL>
 		<em:creator>kakakikikeke</em:creator>
-		<em:description>To shorten the URL for the selected and anchor text.
-		</em:description>
+		<em:description>To shorten the URL for the selected and anchor text.</em:description>
 		<em:homepageURL>http://kakakikikeke.blogspot.com/2012/06/firefoxshorten-url.html
 		</em:homepageURL>
 		<em:iconURL>chrome://shorten_the_URL/skin/stu.png</em:iconURL>
 		<em:icon64URL>chrome://shorten_the_URL/skin/stu64.png</em:icon64URL>
 		<em:id>kakakikikeke@kakakikikeke.blogspot.com</em:id>
 		<em:name>shorten the URL</em:name>
-		<em:optionsURL>chrome://shorten_the_URL/content/pref.xul
-		</em:optionsURL>
+		<em:optionsURL>chrome://shorten_the_URL/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.4.39</em:version>
+		<em:version>0.4.40</em:version>
 		<em:type>2</em:type>
 		<em:unpack>true</em:unpack>
 		<em:localized>
@@ -24,8 +22,7 @@
 				<em:locale>en-US</em:locale>
 				<em:creator>kakakikikeke</em:creator>
 				<em:name>shorten the URL</em:name>
-				<em:description>To shorten the URL for the selected and anchor text.
-				</em:description>
+				<em:description>To shorten the URL for the selected and anchor text.</em:description>
 				<em:homepageURL>http://kakakikikeke.blogspot.com/2012/06/firefoxshorten-url.html
 				</em:homepageURL>
 			</Description>
@@ -35,8 +32,7 @@
 				<em:locale>ja</em:locale>
 				<em:creator>kakakikikeke</em:creator>
 				<em:name>shorten the URL</em:name>
-				<em:description>To shorten the URL for the selected and anchor text.
-				</em:description>
+				<em:description>To shorten the URL for the selected and anchor text.</em:description>
 				<em:homepageURL>http://kakakikikeke.blogspot.com/2012/06/firefoxshorten-url.html
 				</em:homepageURL>
 			</Description>
@@ -44,7 +40,7 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:maxVersion>39.*</em:maxVersion>
+				<em:maxVersion>40.*</em:maxVersion>
 				<em:minVersion>1.0</em:minVersion>
 			</Description>
 		</em:targetApplication>
