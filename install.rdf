@@ -14,7 +14,7 @@
 		<em:name>shorten the URL</em:name>
 		<em:optionsURL>chrome://shorten_the_URL/content/pref.xul</em:optionsURL>
 		<em:updateInfoURL></em:updateInfoURL>
-		<em:version>0.4.48.1</em:version>
+		<em:version>0.4.48.2</em:version>
 		<em:type>2</em:type>
 		<em:unpack>true</em:unpack>
 		<em:localized>
