@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "shorten-the-url",
+  "version": "1.0",
+  "description": "Convert the selected URL or pointing anchor text or current location URL to shortened URL from right click.",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png"
+  },
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "applications": {
+    "gecko": {
+      "id": "kakakikikeke@kakakikikeke.blogspot.com"
+    }
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": [
+    "menus",
+    "tabs",
+    "storage",
+    "notifications",
+    "https://api-ssl.bitly.com/*"
+  ],
+  "default_locale": "en",
+  "homepage_url": "https://blog.kakakikikeke.com/2012/06/firefoxshorten-url.html"
+}
