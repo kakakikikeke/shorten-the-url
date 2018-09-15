@@ -10,7 +10,7 @@ https://addons.mozilla.org/ja/firefox/addon/shorten-the-url/
 How to use it
 -------------
 
-![shorten-the-url-demo](https://1.bp.blogspot.com/-OKcWz0nGhEM/V3H3HbrXNxI/AAAAAAAAIv4/TF393p4-7pAwIJnz1PRiatJxCMW70zPQwCLcB/s1600/demo_shorten_the_url.gif)
+![shorten-the-url-demo](https://4.bp.blogspot.com/-YDEwHAstdr0/W5yQJfUV1BI/AAAAAAAAdSU/yoO-rzkevsIOW1hOZweKc9w-Hz4JjFC3QCLcBGAs/s1600/shorten_the_url_demo.gif)
 
 1. Set your bitly API key on addon's configuration menu.
 2. Please select the URL (or point the ancher text or move the location) you want to shorten and right click and select "shorten the URL" from context menu.
