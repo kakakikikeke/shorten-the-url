@@ -10,17 +10,13 @@ function getCurrentWindowTabs() {
   return browser.tabs.query({currentWindow: true, active: true});
 }
 
-function onError(error) {
-  console.log(`Error: ${error}`);
-}
-
 browser.menus.create({
   id: "shorten-the-url",
   title: browser.i18n.getMessage("menuItemShorten"),
   contexts: ["all"]
 }, onCreated);
 
-browser.menus.onClicked.addListener((info, tab) => {
+browser.menus.onClicked.addListener((info) => {
   switch (info.menuItemId) {
     case "shorten-the-url":
       browser.storage.local.get("bitly", function(value) {
@@ -39,7 +35,7 @@ browser.menus.onClicked.addListener((info, tab) => {
           cli.onreadystatechange = function() {
             var response = cli.responseText;
             if (response != null && response != "") {
-              var responseAsJSON = JSON.stringify(response);
+              JSON.stringify(response);
               var ret = JSON.parse(response);
               if (ret.status_code != 200) {
                 browser.notifications.create({
@@ -63,7 +59,7 @@ browser.menus.onClicked.addListener((info, tab) => {
                   width: 250,
                   height: 100
                 };
-                var creating = browser.windows.create(result);
+                browser.windows.create(result);
                 browser.notifications.create({
                   "type": "basic",
                   "iconUrl": browser.extension.getURL("icons/icon-48.png"),
