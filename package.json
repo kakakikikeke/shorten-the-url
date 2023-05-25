@@ -1,6 +1,6 @@
 {
   "name": "shorten-the-url",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Convert the selected URL or pointing anchor text or current location URL to shortened URL from right click.",
   "main": "main.js",
   "scripts": {
