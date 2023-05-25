@@ -29,24 +29,27 @@ browser.menus.onClicked.addListener((info) => {
           if (info.selectionText !== undefined) {
             url = info.selectionText;
           }
-          var bitly = 'https://api-ssl.bitly.com/v3/shorten?access_token=' + api_key + '&longUrl=' + encodeURIComponent(url);
+          var bitly = 'https://api-ssl.bitly.com/v4/shorten';
+          var data = {
+            'long_url': url
+          }
           var cli = new XMLHttpRequest();
-          cli.open('GET', bitly, true);
+          cli.open('POST', bitly, true);
           cli.onreadystatechange = function() {
             var response = cli.responseText;
+            var status_code = cli.status;
             if (response != null && response != "") {
               JSON.stringify(response);
               var ret = JSON.parse(response);
-              if (ret.status_code != 200) {
+              if (status_code != 200) {
                 browser.notifications.create({
                   "type": "basic",
                   "iconUrl": browser.extension.getURL("icons/icon-48.png"),
                   "title": "Error from Bitly",
-                  "message": ret.status_txt
+                  "message": ret.message
                 });
-              } else if (ret.status_code == 200 && cli.readyState == 4) {
-                let short = ret.data.url;
-                console.log(short);
+              } else if (status_code == 200 && cli.readyState == 4) {
+                let short = ret.link;
                 browser.storage.local.set({
                   bitly: {
                     api_key: api_key,
@@ -69,8 +72,9 @@ browser.menus.onClicked.addListener((info) => {
               }
             }
           }
-          cli.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-          cli.send();
+          cli.setRequestHeader('Content-Type', 'application/json');
+          cli.setRequestHeader('Authorization', `Bearer ${api_key}`);
+          cli.send(JSON.stringify(data));
         });
       });
       break;
