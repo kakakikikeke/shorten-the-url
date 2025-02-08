@@ -42,7 +42,8 @@ browser.menus.onClicked.addListener((info) => {
               JSON.stringify(response);
               var ret = JSON.parse(response);
               if (status_code != 200) {
-                browser.notifications.create({
+                let notificationId = "shorten-the-url-notification";
+                browser.notifications.create(notificationId, {
                   "type": "basic",
                   "iconUrl": browser.extension.getURL("icons/icon-48.png"),
                   "title": "Error from Bitly",
