@@ -20,6 +20,7 @@ Please sending an issue or pull-request on this repository.
 ### eslint
 * nvm use
 * npm i
+* npm fund && npm audit fix
 * npm run lint .
 
 ### build
