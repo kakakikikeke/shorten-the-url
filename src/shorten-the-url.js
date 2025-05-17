@@ -25,7 +25,6 @@ function shortenURL(info) {
     case id:
       browser.storage.local.get("bitly", function (value) {
         var api_key = value.bitly.api_key;
-        console.log(api_key);
         getCurrentWindowTabs().then((tabs) => {
           let url = tabs[0].url;
           if (info.linkUrl !== undefined) {
