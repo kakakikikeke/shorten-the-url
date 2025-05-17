@@ -1,7 +1,9 @@
 # shorten-the-url
+
 Convert the selected URL or pointing anchor text or current location URL to shortened URL from right click.
 
 ## How to install
+
 Download addon from below URL.  
 https://addons.mozilla.org/ja/firefox/addon/shorten-the-url/
 
@@ -17,11 +19,22 @@ https://addons.mozilla.org/ja/firefox/addon/shorten-the-url/
 Please sending an issue or pull-request on this repository.
 
 ## Development
-### eslint
-* nvm use
-* npm i
-* npm fund && npm audit fix
-* npm run lint .
+
+### install
+
+- nvm use
+- npm i
+- npm fund && npm audit fix
+
+### format and lint
+
+- npm run format
+- npm run lint
+
+### test
+
+- npm run test
 
 ### build
-* sh build.sh
+
+- sh build.sh

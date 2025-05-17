@@ -1,4 +1,4 @@
-browser.storage.local.get("bitly", function(value) {
+browser.storage.local.get("bitly", function (value) {
   document.getElementById("result").value = value.bitly.latest;
 });
 

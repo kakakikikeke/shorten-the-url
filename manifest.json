@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
   "name": "shorten-the-url",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Convert the selected URL or pointing anchor text or current location URL to shortened URL from right click.",
   "icons": {
     "48": "icons/icon-48.png",
     "64": "icons/icon-64.png"
   },
   "background": {
-    "scripts": ["main.js"]
+    "scripts": ["src/shorten-the-url.js", "src/main.js"]
   },
   "applications": {
     "gecko": {
@@ -16,7 +16,7 @@
     }
   },
   "options_ui": {
-    "page": "options.html"
+    "page": "src/options.html"
   },
   "permissions": [
     "menus",

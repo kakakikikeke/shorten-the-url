@@ -2,8 +2,8 @@ function saveOptions(e) {
   e.preventDefault();
   browser.storage.local.set({
     bitly: {
-      api_key: document.querySelector("#api_key").value
-    }
+      api_key: document.querySelector("#api_key").value,
+    },
   });
 }
 
